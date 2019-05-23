@@ -34,5 +34,15 @@ namespace WPFUI
         {
             Application.Current.Shutdown();
         }
+
+        private void ButtonMarca_Selected(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ButtonConcessionarios_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
