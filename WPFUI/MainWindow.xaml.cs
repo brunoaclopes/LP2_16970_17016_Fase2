@@ -35,13 +35,35 @@ namespace WPFUI
             Application.Current.Shutdown();
         }
 
-        private void ButtonMarca_Selected(object sender, RoutedEventArgs e)
+        private void MenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Application.Current.Shutdown();
-        }
+            int index = MenuListView.SelectedIndex;
 
-        private void ButtonConcessionarios_Selected(object sender, RoutedEventArgs e)
-        {
+            switch (index)
+            {
+                case 0:
+                    //GridPrincipal.Children.Clear();
+                    //GridPrincipal.Children.Add(new MainWindow());
+                    break;
+                case 1:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new MainWindow());
+                    break;
+                case 2:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new MainWindow());
+                    break;
+                case 3:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new MainWindow());
+                    break;
+                case 4:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new MainWindow());
+                    break;
+                default:
+                    break;
+            }
 
         }
     }

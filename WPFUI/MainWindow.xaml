@@ -9,7 +9,7 @@
     <Window.Resources>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="260"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
@@ -20,7 +20,7 @@
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="260"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
                 <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
@@ -42,7 +42,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid x:Name="GridBarraTitulo" MouseDown="GridBarraTitulo_MouseDown">
+            <Grid x:Name="GridBarraTitulo" Grid.Row="0" Background="White" MouseDown="GridBarraTitulo_MouseDown">
                 <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Right" Margin="10,0" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonFechar_Click">
                     <materialDesign:PackIcon Kind="Power" Foreground="#FF313131"/>
                 </Button>
@@ -50,9 +50,12 @@
                     <materialDesign:PackIcon Kind="Menu" Foreground="#FF313131"/>
                 </Button>
             </Grid>
-            <Grid Grid.Row="1" Background="#FFF1F1F1"/>
+            <Grid x:Name="GridPrincipal" Grid.Row="1" Background="#FFF1F1F1" />
         </Grid>
-        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="-250 0 0 0" Background="#FF1F1F1F" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="-260 0 0 0" Background="#FF1F1F1F" RenderTransformOrigin="0.5,0.5">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="3"/>
+            </Grid.Effect>
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -66,14 +69,14 @@
                     <TextBlock Text="Menu" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Margin="20"
                                FontFamily="Champagne &amp; Limousines" Foreground="White"/>
                 </StackPanel>
-                <ListView Foreground="#FFF1F1F1" FontFamily="Champagne &amp; Limousines" FontSize="18">
-                    <ListViewItem x:Name="ButtonMarca" Height="45" Padding="0" Selected="ButtonMarca_Selected">
+                <ListView x:Name="MenuListView" Foreground="#FFF1F1F1" FontFamily="Champagne &amp; Limousines" FontSize="18" SelectionChanged="MenuListView_SelectionChanged" SelectedIndex="0">
+                    <ListViewItem x:Name="ButtonMarca" Height="45" Padding="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="OfficeBuilding" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Marca" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ButtonConcessionarios" Height="45" Padding="0" Selected="ButtonConcessionarios_Selected">
+                    <ListViewItem x:Name="ButtonConcessionarios" Height="45" Padding="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Store" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Concessionarios" Margin="10"/>
