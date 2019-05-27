@@ -50,7 +50,9 @@
                     <materialDesign:PackIcon Kind="Menu" Foreground="#FF313131"/>
                 </Button>
             </Grid>
-            <Grid x:Name="GridPrincipal" Grid.Row="1" Background="#FFF1F1F1" />
+            <Grid Grid.Row="1" Background="#FFF1F1F1">
+                <Grid x:Name="GridPrincipal"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
         </Grid>
         <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="-260 0 0 0" Background="#FF1F1F1F" RenderTransformOrigin="0.5,0.5">
             <Grid.Effect>
@@ -66,7 +68,7 @@
             </Grid.RenderTransform>
             <StackPanel>
                 <StackPanel Background="#FF831717">
-                    <TextBlock Text="Menu" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Margin="20"
+                    <TextBlock x:Name="Marca" Text="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Margin="20"
                                FontFamily="Champagne &amp; Limousines" Foreground="White"/>
                 </StackPanel>
                 <ListView x:Name="MenuListView" Foreground="#FFF1F1F1" FontFamily="Champagne &amp; Limousines" FontSize="18" SelectionChanged="MenuListView_SelectionChanged" SelectedIndex="0">
@@ -79,7 +81,7 @@
                     <ListViewItem x:Name="ButtonConcessionarios" Height="45" Padding="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Store" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Concessionarios" Margin="10"/>
+                            <TextBlock Text="Concessionários" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ButtonCarros" Height="45" Padding="0">

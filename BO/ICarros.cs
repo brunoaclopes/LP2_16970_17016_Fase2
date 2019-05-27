@@ -8,7 +8,7 @@
 * -------------------------------------------------
 */
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Esta interface foi desenvolvida meramente para auxiliar no desenvolvimento de classes que utilizem uma lista de carros.

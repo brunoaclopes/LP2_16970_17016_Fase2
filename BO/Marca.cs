@@ -11,9 +11,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Esta classe contem o nome da marca e uma lista de concessionarios pertencentes a determinada marca, assim como metodos para operar a lista de concessionarios, uma propriedades para operar com o nome da marca e futuramente ira dispor de metodos para trabalhar com ficheiros de dados.
@@ -55,10 +56,22 @@ namespace ClassLibrary
             set { nome = value; }
         }
 
+        /// <summary>
+        /// Propriedade para a lista de concessionarios
+        /// </summary>
+        public List<Concessionario> Concessionarios
+        {
+            get { return cons; }
+        }
+
         #endregion
 
         #region Metodos
-
+        /// <summary>
+        /// Adiciona um concessionario a lista
+        /// </summary>
+        /// <param name="c">concessionario a adicionar</param>
+        /// <returns></returns>
         public bool AddConc (Concessionario c)
         {
             if (!cons.Exists(var => var.Id == c.Id))
@@ -69,7 +82,11 @@ namespace ClassLibrary
             return false;
         }
 
-
+        /// <summary>
+        /// Remove um Concessionario da marca
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <returns></returns>
         public bool DeleteConc(int id)
         {
             if (cons.Exists(var => var.Id == id))
@@ -80,6 +97,12 @@ namespace ClassLibrary
             return false;
         }
 
+        /// <summary>
+        /// Procura e retorna pelos parametros um concessionario pelo id
+        /// </summary>
+        /// <param name="id">id a procurar</param>
+        /// <param name="c">concessionario encontradado</param>
+        /// <returns>Retorna se um concessionario existe.</returns>
         public bool SearchConc (int id, out Concessionario c)
         {
             c = null;
@@ -90,7 +113,7 @@ namespace ClassLibrary
             }
             return false;
         }
-
+        
         #endregion
 
         #region Metodos Ficheiros
@@ -117,7 +140,7 @@ namespace ClassLibrary
         /// <param name="path">caminho do ficheiro</param>
         public static void ImportJson(out Marca m, string path)
         {
-            using (StreamReader file = File.OpenText(@path))
+            using (StreamReader file = File.OpenText(path))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 m = (Marca)serializer.Deserialize(file, typeof(Marca));

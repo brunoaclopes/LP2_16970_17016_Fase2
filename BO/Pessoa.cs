@@ -10,7 +10,7 @@
 
 using System;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Esta classe dispoem de atributos correspondentes a carateristicas de uma pessoa, assim como propriedades e metodos para realizar as mais variadas operaçoes com os referidos atributos.

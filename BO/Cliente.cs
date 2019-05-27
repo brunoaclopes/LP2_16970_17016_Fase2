@@ -10,7 +10,7 @@
 
 using System;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Esta classe cliente descende de pessoa, dotando assim dos seus atributos e metodos. Alem do que se encontra na classe pessoa, cliente dispoem tambem de carros que é uma lista de carro que o cliente dispoem e da data em que esta pessoa começou a ser cliente da marca, tal como varios metodos para operar a referida lista e uma propriedade para operar com a data.

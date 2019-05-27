@@ -10,7 +10,7 @@
 
 using System;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Nesta classe estão definidos os atributos de um carro assim como metodos que premitem operar tais atributos.

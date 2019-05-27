@@ -10,7 +10,7 @@
 
 using System;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Esta classe comercial descende da classe pessoa, dotando assim dos seus metodos e atributos, mas alem desses, Comercial dispoe de um atributo data que corresponde a data em que esta pessoa começou atrabalhar como comercial da marca, assim como de uma propriedade para operar com essa mesma data.

@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Este enumerado serve para reservar as palavras Cliente e Comercial que serao futuramente utilizadas no controlo de metodos.
@@ -32,6 +32,24 @@ namespace ClassLibrary
         #region Atributos
         private List<Cliente> cl = new List<Cliente>();
         private List<Comercial> cm = new List<Comercial>();
+        #endregion
+
+        #region Propriedades
+        /// <summary>
+        /// Propriedade da lista de comerciais
+        /// </summary>
+        public List<Comercial> Comerciais
+        {
+            get { return cm; }
+        }
+
+        /// <summary>
+        /// Propriedade da lista de clientes
+        /// </summary>
+        public List<Cliente> Clientes
+        {
+            get { return cl; }
+        }
         #endregion
 
         #region Construtores

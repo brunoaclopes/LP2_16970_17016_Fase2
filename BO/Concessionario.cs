@@ -10,7 +10,7 @@
 
 using System;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Nesta Classe podemos encontrar como atributos Pessoas que por si contem uma lista de comerciais e uma de clientes do concessionario e Carros que comtem uma lista de carro, podemos tmb verificar que esta classe dispoem de um id, que corresponde ao ID do concessionario, e dos varios metodos desenvolvidos para manipular as anteriormente referidas listas.
@@ -63,6 +63,22 @@ namespace ClassLibrary
         {
             get { return id; }
             set { id = value; }
+        }
+
+        /// <summary>
+        /// Propriedade das pessoas
+        /// </summary>
+        public Pessoas Pessoas
+        {
+            get { return p; }
+        }
+
+        /// <summary>
+        /// Propriedade dos carros
+        /// </summary>
+        public Carros Carros
+        {
+            get { return c; }
         }
         #endregion
 
@@ -206,7 +222,6 @@ namespace ClassLibrary
         {
             return (c.SearchCarro(vin));
         }
-
         #endregion
 
         #endregion

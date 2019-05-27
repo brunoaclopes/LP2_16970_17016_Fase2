@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ClassLibrary
+namespace BO
 {
     /// <summary>
     /// Nesta classe temos uma lista de carro e os metodos para manipular e interagir com essa lista.
@@ -107,6 +107,15 @@ namespace ClassLibrary
                 Console.WriteLine(var.ToString());
             }
             Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Metodo que retorna o numero de carros da lista
+        /// </summary>
+        /// <returns></returns>
+        public int NCarros()
+        {
+            return c.Count;
         }
         #endregion
     }

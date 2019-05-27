@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BL;
 
 namespace WPFUI
 {
@@ -20,9 +21,13 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BusinessLayer bl;
+
         public MainWindow()
         {
+            bl = new BusinessLayer();
             InitializeComponent();
+            Marca.DataContext = bl.NomeMarca();
         }
 
         private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
@@ -32,6 +37,7 @@ namespace WPFUI
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
+            bl.Export();
             Application.Current.Shutdown();
         }
 
@@ -42,12 +48,12 @@ namespace WPFUI
             switch (index)
             {
                 case 0:
-                    //GridPrincipal.Children.Clear();
-                    //GridPrincipal.Children.Add(new MainWindow());
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new UserControlMarca(bl));
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new MainWindow());
+                    GridPrincipal.Children.Add(new UserControlMarca(bl));
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();
