@@ -53,7 +53,7 @@ namespace WPFUI
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new UserControlMarca(bl));
+                    GridPrincipal.Children.Add(new UserControlConcessionario(bl));
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();

@@ -37,6 +37,17 @@ namespace BL
         }
         #endregion
 
+        #region Metodos
+        
+        /// <summary>
+        /// Metodo que fornece o nome da marca
+        /// </summary>
+        /// <returns></returns>
+        public string NomeMarca()
+        {
+            return data.NomeMarca();
+        }
+
         #region Contadores
         /// <summary>
         /// Conta o numero total de Concessionarios da marca
@@ -85,10 +96,36 @@ namespace BL
         }
         #endregion
 
-        public string NomeMarca()
+        #region Metodos Concessionarios
+        /// <summary>
+        /// Metodo que fornece uma lista com os concessionarios
+        /// </summary>
+        /// <returns></returns>
+        public List<Concessionario> Concessionarios()
         {
-            return data.NomeMarca();
+            return data.Concessionarios();
         }
+
+        /// <summary>
+        /// Metodo para adicionar um novo concessionario
+        /// </summary>
+        public void AddConcessionario()
+        {
+            int id;
+            if (data.Concessionarios().Count != 0) id = data.Concessionarios().Max<Concessionario>(var => var.Id) + 1; else id = 1;
+            data.AddConcessionario(id);
+        }
+
+        /// <summary>
+        /// Metodo para remover um concessionario
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteConcessionario(int id)
+        {
+            data.DeleteConcessionario(id);
+        }
+        #endregion
+
 
         /// <summary>
         /// Metodo que exporta os dados para um ficheiro
@@ -97,5 +134,7 @@ namespace BL
         {
             data.Export();
         }
+
+        #endregion
     }
 }

@@ -39,6 +39,11 @@ namespace BO
         }
         #endregion
 
+        public List<Carro> LCarros
+        {
+            get { return c; }
+        }
+
         #region Metodos
         /// <summary>
         /// Metodo para adicionar um carro a lista.

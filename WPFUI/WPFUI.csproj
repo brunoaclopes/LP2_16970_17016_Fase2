@@ -64,6 +64,9 @@
     <Compile Include="undeveloped\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlConcessionario.xaml.cs">
+      <DependentUpon>UserControlConcessionario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlMarca.xaml.cs">
       <DependentUpon>UserControlMarca.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="undeveloped\StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlConcessionario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

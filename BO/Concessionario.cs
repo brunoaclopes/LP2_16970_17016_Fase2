@@ -9,6 +9,7 @@
 */
 
 using System;
+using Newtonsoft.Json;
 
 namespace BO
 {
@@ -53,6 +54,20 @@ namespace BO
             }
         }
 
+        /// <summary>
+        /// Construtor Completo
+        /// </summary>
+        /// <param name="id">ID do concessionario</param>
+        /// <param name="p">lista de pessoas</param>
+        /// <param name="c">lista de carros</param>
+        [JsonConstructor]
+        public Concessionario(int id, Pessoas p, Carros c)
+        {
+            this.id = id;
+            this.c = c;
+            this.p = p;
+        }
+
         #endregion
 
         #region Propriedades
@@ -80,6 +95,33 @@ namespace BO
         {
             get { return c; }
         }
+
+        #region Propriedades Contadores
+        /// <summary>
+        /// Propriedade para o numero de carros do concessionario
+        /// </summary>
+        public int NCarros
+        {
+            get { if (c != null) return c.NCarros(); else return 0; }
+        }
+
+        /// <summary>
+        /// Propriedade para o numero de clientes do concessionario
+        /// </summary>
+        public int NClientes
+        {
+            get { if (p != null) return p.Clientes.Count; else return 0; }
+        }
+
+        /// <summary>
+        /// Propriedade para o numero de comerciais do concessionario
+        /// </summary>
+        public int NComerciais
+        {
+            get { if (p != null) return p.Comerciais.Count; else return 0; }
+        }
+        #endregion
+
         #endregion
 
         #region Metodos

@@ -66,7 +66,7 @@ namespace DL
 
             foreach(Concessionario c in marca.Concessionarios)
             {
-                n += c.Carros.NCarros();
+                if (c.Carros != null) n += c.Carros.NCarros();
             }
 
             return n;
@@ -91,7 +91,7 @@ namespace DL
             int n = 0;
             foreach (Concessionario c in marca.Concessionarios)
             {
-                n += c.Pessoas.Comerciais.Count;
+                if (c.Pessoas != null) n += c.Pessoas.Comerciais.Count;
             }
 
             return n;
@@ -106,7 +106,7 @@ namespace DL
             int n = 0;
             foreach (Concessionario c in marca.Concessionarios)
             {
-                n += c.Pessoas.Clientes.Count;
+                if (c.Pessoas != null) n += c.Pessoas.Clientes.Count;
             }
 
             return n;
@@ -116,6 +116,21 @@ namespace DL
         public string NomeMarca()
         {
             return marca.Nome;
+        }
+
+        public List<Concessionario> Concessionarios()
+        {
+            return marca.Concessionarios;
+        }
+
+        public void AddConcessionario(int id)
+        {
+            marca.AddConc(new Concessionario(id));
+        }
+
+        public void DeleteConcessionario(int id)
+        {
+            marca.DeleteConc(id);
         }
 
         /// <summary>
