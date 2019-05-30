@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace BO
 {
@@ -39,10 +40,15 @@ namespace BO
         }
         #endregion
 
+        #region Propriedades
+        /// <summary>
+        /// Propriedade da lista de carros
+        /// </summary>
         public List<Carro> LCarros
         {
             get { return c; }
         }
+        #endregion
 
         #region Metodos
         /// <summary>

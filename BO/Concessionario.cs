@@ -86,6 +86,7 @@ namespace BO
         public Pessoas Pessoas
         {
             get { return p; }
+            set { p = value; }
         }
 
         /// <summary>
@@ -94,6 +95,7 @@ namespace BO
         public Carros Carros
         {
             get { return c; }
+            set { c = value; }
         }
 
         #region Propriedades Contadores
@@ -128,22 +130,32 @@ namespace BO
 
         #region Metodos de Pessoas
         /// <summary>
-        /// Metodo para adicionar uma pessoa (Cliente/Comercial) á lista.
+        /// Metodo para adicionar um carro a um cliente
         /// </summary>
-        /// <param name="p">objeto a adicionar</param>
+        /// <param name="nif">nif do cliente</param>
+        /// <param name="c">veiculo a adicionar</param>
+        /// <returns></returns>
         public bool AddCarro(double nif, Carro c)
         {
             return (p.AddCarro(nif, c));
         }
 
         /// <summary>
-        /// Metodo para apagar uma pessoa da lista.
+        /// Metodo para adicionar uma pessoa (Cliente/Comercial) á lista.
         /// </summary>
-        /// <param name="nif">NIF da Pessoa</param>
-        /// <returns></returns>
+        /// <param name="p">objeto a adicionar</param>
         public bool AddPessoa(object p)
         {
-            return (this.p.AddPessoa(p));
+            try
+            {
+                return (this.p.AddPessoa(p));
+            }
+            catch (NullReferenceException e)
+            {
+                this.p = new Pessoas(p);
+                return true;
+            }
+            
         }
 
         /// <summary>
@@ -223,7 +235,15 @@ namespace BO
         /// <param name="c">objeto tipo Carro a adicionar</param>
         public bool AddCarro(Carro c)
         {
-            return (this.c.AddCarro(c));
+            try
+            {
+                return this.c.AddCarro(c);
+            }
+            catch (NullReferenceException e)
+            {
+                this.c = new Carros(c);
+                return true;
+            }
         }
 
         /// <summary>

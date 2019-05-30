@@ -31,6 +31,9 @@ namespace WPFUI
             LoadDataTemplate();
         }
 
+        /// <summary>
+        /// Metodo para permitir controlar a lista com a roda do rato
+        /// </summary>
         private void ListaConcessionarios_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             ScrollViewer scv = (ScrollViewer)sender;
@@ -38,17 +41,26 @@ namespace WPFUI
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Metodo para carregar os dados na lista
+        /// </summary>
         private void LoadDataTemplate()
         {
             ListaConcessionarios.ItemsSource = bl.Concessionarios();
         }
 
+        /// <summary>
+        /// Metodo para adicionar um concessionario ao clicar no botao
+        /// </summary>
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             bl.AddConcessionario();
             ListaConcessionarios.Items.Refresh();
         }
 
+        /// <summary>
+        /// Metodo para remover um concessionario ao clicar no botao
+        /// </summary>
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
             int id;

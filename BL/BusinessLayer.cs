@@ -126,6 +126,103 @@ namespace BL
         }
         #endregion
 
+        #region Metodos Carros
+        /// <summary>
+        /// Metodo que retorna a lista de carros de um determinado concessionario
+        /// </summary>
+        /// <param name="id">id fo concessionario</param>
+        /// <returns></returns>
+        public List<Carro> ListaCarros (int id)
+        {
+            try
+            {
+                return data.Carros(id).LCarros;
+            }
+            catch (NullReferenceException e)
+            {
+                return null;
+            }
+            
+        }
+
+        /// <summary>
+        /// Metodo para adicionar um carro a um determinado concessioario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <param name="data">data do carro</param>
+        /// <param name="modelo">modelo do carro</param>
+        /// <param name="vin">vin do carro</param>
+        public void AddCarro(int id, DateTime data, string modelo, int vin)
+        {
+            this.data.AddCarro(id, new Carro(data, modelo, vin));
+        }
+
+        /// <summary>
+        /// Metodo para remover um carro de uma determinada lista
+        /// </summary>
+        /// <param name="vin">vin do carro a remover</param>
+        public void DeleteCarro(int vin)
+        {
+            data.DeleteCarro(vin);
+        }
+
+        #endregion
+
+        #region Metodos Pessoas
+        /// <summary>
+        /// Metodo que retorna a lista de comerciais de um determinado cocessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <returns></returns>
+        public List<Comercial> ListaComerciais(int id)
+        {
+            try
+            {
+                return data.Pessoas(id).Comerciais;
+            }
+            catch (NullReferenceException e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Metodo que retorna a lista de clientes de um determinado cocessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <returns></returns>
+        public List<Cliente> ListaClientes(int id)
+        {
+            try
+            {
+                return data.Pessoas(id).Clientes;
+            }
+            catch (NullReferenceException e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Metodo para adicionar uma pessoa a um concessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <param name="o">pessoa a adicionar</param>
+        public void AddPessoa(int id, object o)
+        {
+            this.data.AddPessoa(id, o);
+        }
+
+        /// <summary>
+        /// Metodo para remover uma pessoa
+        /// </summary>
+        /// <param name="nif">nif da pessoa</param>
+        public void DeletePessoa(double nif)
+        {
+            data.DeletePessoa(nif);
+        }
+
+        #endregion
 
         /// <summary>
         /// Metodo que exporta os dados para um ficheiro

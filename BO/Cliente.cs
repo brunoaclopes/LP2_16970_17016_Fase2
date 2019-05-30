@@ -46,7 +46,19 @@ namespace BO
         }
 
         /// <summary>
-        /// Construtor com valores do exterior
+        /// Construtor com valores do exterior s/carro
+        /// </summary>
+        /// <param name="data">data de quando a pessoa se tornou cliente</param>
+        /// <param name="n">nome do cliente</param>
+        /// <param name="nif">nif do cliente</param>
+        /// <param name="dataNascimento">data de nascimento do cliente</param>
+        public Cliente(string n, double nif, DateTime dataNascimento, DateTime data) : base(n, nif, dataNascimento)
+        {
+            this.data = data;
+        }
+
+        /// <summary>
+        /// Construtor com valores do exterior c/carro
         /// </summary>
         /// <param name="data">data de quando a pessoa se tornou cliente</param>
         /// <param name="c">carro a introduzir em cliente</param>
@@ -77,6 +89,24 @@ namespace BO
                 }
             }
         }
+
+        /// <summary>
+        /// Propriedade para a lista de carros
+        /// </summary>
+        public Carros Carros
+        {
+            get { return carros; }
+            set { carros = value; }
+        }
+
+        /// <summary>
+        /// Propriedade para fornecer a data formatada
+        /// </summary>
+        public string StringData
+        {
+            get { return data.ToString("d"); }
+        }
+
         #endregion
 
         #region Metodos

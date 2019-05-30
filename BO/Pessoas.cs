@@ -41,6 +41,7 @@ namespace BO
         public List<Comercial> Comerciais
         {
             get { return cm; }
+            set { cm = value; }
         }
 
         /// <summary>
@@ -49,6 +50,7 @@ namespace BO
         public List<Cliente> Clientes
         {
             get { return cl; }
+            set { cl = value; }
         }
         #endregion
 

@@ -1,0 +1,25 @@
+﻿<Window x:Class="WPFUI.UserControls.AddCarro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI.UserControls"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="AddCarro" Height="400" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#FF232323">
+        <Border Background="White" Margin="20" CornerRadius="10">
+            <StackPanel Margin="20">
+                <TextBlock Text="Ficha do Veiculo" HorizontalAlignment="Center" FontSize="16"/>
+                <TextBlock Text="Modelo:" Margin="0 10 0 5"/>
+                <TextBox x:Name="Modelo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Exemplo: (320d)"/>
+                <TextBlock Text="Data:" Margin="0 10 0 5"/>
+                <DatePicker x:Name="Data"/>
+                <TextBlock Text="VIN:" Margin="0 10 0 5"/>
+                <TextBox x:Name="Vin" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Exemplo: (123456789)"/>
+                <Button x:Name="Add" Content="Adicionar" Margin="20 20 20 10" Click="Add_Click"/>
+                <Button x:Name="Cancelar" Content="Cancelar" Margin="20 5 20 0" Click="Cancelar_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

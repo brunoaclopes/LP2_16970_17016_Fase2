@@ -90,6 +90,10 @@ namespace BO
                 idade = CalculaIdade(dataNascimento);
                 return idade;
             }
+            set
+            {
+                idade = value;
+            }
         }
 
         /// <summary>
@@ -106,11 +110,6 @@ namespace BO
         #endregion
 
         #region OVERRIDES
-
-        public override bool Equals(Object obj)
-        {
-            return ((this.nif == ((Pessoa)obj).nif) && (this.nome == ((Pessoa)obj).nome));
-        }
 
         public override string ToString()
         {

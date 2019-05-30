@@ -15,7 +15,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <ScrollViewer Height="570" PreviewMouseWheel="ListaConcessionarios_PreviewMouseWheel" Grid.Column="0">
-                    <ListView x:Name="ListaConcessionarios" FontFamily="Champagne &amp; Limousines" FontSize="18"  Margin="40 0 40 0" >
+                    <ListView x:Name="ListaConcessionarios" FontSize="18"  Margin="40 0 40 0" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border Background="Gray" MinWidth="500" CornerRadius="10">

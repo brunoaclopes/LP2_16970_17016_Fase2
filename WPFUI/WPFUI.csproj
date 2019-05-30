@@ -64,6 +64,21 @@
     <Compile Include="undeveloped\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlClientes.xaml.cs">
+      <DependentUpon>UserControlClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddPessoa.xaml.cs">
+      <DependentUpon>AddPessoa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComerciais.xaml.cs">
+      <DependentUpon>UserControlComerciais.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddCarro.xaml.cs">
+      <DependentUpon>AddCarro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlCarros.xaml.cs">
+      <DependentUpon>UserControlCarros.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlConcessionario.xaml.cs">
       <DependentUpon>UserControlConcessionario.xaml</DependentUpon>
     </Compile>
@@ -83,6 +98,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="undeveloped\StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddPessoa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlComerciais.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddCarro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlCarros.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

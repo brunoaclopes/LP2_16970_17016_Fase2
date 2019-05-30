@@ -1,0 +1,23 @@
+﻿<Window x:Class="WPFUI.UserControls.AddPessoa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI.UserControls"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="AddPessoa" Height="400" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#FF232323">
+        <Border Background="White" Margin="20" CornerRadius="10">
+            <StackPanel Margin="20">
+                <TextBlock Text="Ficha da Pessoa" HorizontalAlignment="Center" FontSize="16"/>
+                <TextBox x:Name="Nome" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nome"/>
+                <DatePicker x:Name="DataNascimento" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Data de Nascimento"/>
+                <TextBox x:Name="Nif" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="NIF"/>
+                <DatePicker x:Name="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Data de inicio de atividade"/>
+                <Button x:Name="Add" Content="Adicionar" Margin="20 30 20 20" Click="Add_Click"/>
+                <Button x:Name="Cancelar" Content="Cancelar" Margin="20 10 20 0" Click="Cancelar_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

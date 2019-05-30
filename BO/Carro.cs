@@ -9,6 +9,7 @@
 */
 
 using System;
+using Newtonsoft.Json;
 
 namespace BO
 {
@@ -78,6 +79,11 @@ namespace BO
             }
         }
 
+        public string StringData
+        {
+            get { return data.ToString("d"); }
+        }
+
         /// <summary>
         /// Propriedade para o modelo do veiculo.
         /// </summary>
@@ -93,15 +99,11 @@ namespace BO
         public int Vin
         {
             get { return vin; }
+            set { vin = value; }
         }
         #endregion
 
         #region OVERRIDES
-
-        public override bool Equals(Object obj)
-        {
-            return (this.vin == ((Carro)obj).vin);
-        }
 
         public override string ToString()
         {

@@ -46,6 +46,14 @@ namespace DL
 
         #endregion
 
+        /// <summary>
+        /// Metodo que fornece o nome da marca
+        /// </summary>
+        public string NomeMarca()
+        {
+            return marca.Nome;
+        }
+
         #region Contadores
         /// <summary>
         /// Conta o numero total de Concessionarios da marca
@@ -113,11 +121,7 @@ namespace DL
         }
         #endregion
 
-        public string NomeMarca()
-        {
-            return marca.Nome;
-        }
-
+        #region Metodos Concessionarios
         public List<Concessionario> Concessionarios()
         {
             return marca.Concessionarios;
@@ -132,6 +136,69 @@ namespace DL
         {
             marca.DeleteConc(id);
         }
+        #endregion
+
+        #region Metodos Carros
+        /// <summary>
+        /// Metodo que retorna um objeto carros que contem os varios carros de um concessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <returns></returns>
+        public Carros Carros(int id)
+        {
+            return marca.Concessionarios.Find(var => var.Id == id).Carros;
+        }
+        
+        /// <summary>
+        /// Metodo para adicionar um carro a um concessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <param name="c">carro a adicionar</param>
+        public void AddCarro(int id, Carro c)
+        {
+            if (!marca.Concessionarios.Exists(var => var.SearchCarro(c.Vin) == true)) marca.Concessionarios.Find(var => var.Id == id).AddCarro(c);
+        }
+
+        /// <summary>
+        /// Metodo para remover um carro
+        /// </summary>
+        /// <param name="vin">vin do carro a remover</param>
+        public void DeleteCarro(int vin)
+        {
+            marca.Concessionarios.Find(var => var.SearchCarro(vin) == true).DeleteCarro(vin);
+        }
+        #endregion
+
+        #region Metodos Pessoas
+        /// <summary>
+        /// Metodo que retorna um objeto pessoas que contem varios clientes e comerciais de um concessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <returns></returns>
+        public Pessoas Pessoas(int id)
+        {
+            return marca.Concessionarios.Find(var => var.Id == id).Pessoas;
+        }
+
+        /// <summary>
+        /// Metodo para adicionar uma pessoa a um concessionario
+        /// </summary>
+        /// <param name="id">id do concessionario</param>
+        /// <param name="o">pessoa a adicionar</param>
+        public void AddPessoa(int id, object o)
+        {
+            if (!marca.Concessionarios.Exists(var => var.SearchPessoa(((Pessoa)o).Nif) == true)) marca.Concessionarios.Find(var => var.Id == id).AddPessoa(o);
+        }
+
+        /// <summary>
+        /// Metodo para remover uma pessoa
+        /// </summary>
+        /// <param name="nif">pessoa a remover</param>
+        public void DeletePessoa(double nif)
+        {
+            marca.Concessionarios.Find(var => var.SearchPessoa(nif) == true).DeletePessoa(nif);
+        }
+        #endregion
 
         /// <summary>
         /// Metodo que exporta os dados para um ficheiro

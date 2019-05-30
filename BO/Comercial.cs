@@ -72,6 +72,14 @@ namespace BO
                 }
             }
         }
+
+        /// <summary>
+        /// Propriedade para fornecer a data formatada
+        /// </summary>
+        public string StringData
+        {
+            get { return data.ToString("d"); }
+        }
         #endregion
     }
 }

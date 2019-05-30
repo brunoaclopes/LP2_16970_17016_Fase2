@@ -30,17 +30,26 @@ namespace WPFUI
             Marca.DataContext = bl.NomeMarca();
         }
 
+        /// <summary>
+        /// Metodo para permitir mover a janela ao arrastar a barra superior
+        /// </summary>
         private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
 
+        /// <summary>
+        /// Metodo para fechar o programa e guardar os dados
+        /// </summary>
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
             bl.Export();
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Metodo para fazer variar a grid principal conforme a opçao no menu
+        /// </summary>
         private void MenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = MenuListView.SelectedIndex;
@@ -57,15 +66,15 @@ namespace WPFUI
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new MainWindow());
+                    GridPrincipal.Children.Add(new UserControlCarros(bl));
                     break;
                 case 3:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new MainWindow());
+                    GridPrincipal.Children.Add(new UserControlComerciais(bl));
                     break;
                 case 4:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new MainWindow());
+                    GridPrincipal.Children.Add(new UserControlClientes(bl));
                     break;
                 default:
                     break;
