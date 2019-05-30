@@ -107,6 +107,16 @@ namespace BO
             get { return data.ToString("d"); }
         }
 
+        /// <summary>
+        /// Propriedade que fornece o numero de carros do cliente
+        /// </summary>
+        public int NCarros
+        {
+            get
+            {
+                return carros.NCarros();
+            }
+        }
         #endregion
 
         #region Metodos

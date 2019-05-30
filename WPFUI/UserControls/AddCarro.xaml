@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="AddCarro" Height="400" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Grid Background="#FF232323">
+    <Grid Background="#FF343434">
         <Border Background="White" Margin="20" CornerRadius="10">
             <StackPanel Margin="20">
                 <TextBlock Text="Ficha do Veiculo" HorizontalAlignment="Center" FontSize="16"/>

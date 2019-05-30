@@ -2,11 +2,9 @@
 *  -------------------------------------------------
 * <copyright file=" BusinessLayer " company="IPCA"/>
 * <date> 5/27/2019 10:56:28 AM </date>
-* <author> bruno </author>
+* <author1> Bruno Lopes 16970</author1>
+* <author2> Ines Alves 17016 </author2>
 * <email> a16970@alunos.ipca.pt </email>
-* <desc>
-*   
-* </desc>
 * -------------------------------------------------
 */
 
@@ -128,6 +126,15 @@ namespace BL
 
         #region Metodos Carros
         /// <summary>
+        /// Metodo que fornece uma lista com todos os carros da marca
+        /// </summary>
+        /// <returns></returns>
+        public List<Carro> Carros()
+        {
+            return data.Carros();
+        }
+
+        /// <summary>
         /// Metodo que retorna a lista de carros de um determinado concessionario
         /// </summary>
         /// <param name="id">id fo concessionario</param>
@@ -146,6 +153,24 @@ namespace BL
         }
 
         /// <summary>
+        /// Metodo que retorna a lista de carros de um determinado cliente
+        /// </summary>
+        /// <param name="nif">nif do cliente</param>
+        /// <returns></returns>
+        public List<Carro> ListaCarros(double nif)
+        {
+            try
+            {
+                return data.Carros(nif).LCarros;
+            }
+            catch (NullReferenceException e)
+            {
+                return null;
+            }
+
+        }
+
+        /// <summary>
         /// Metodo para adicionar um carro a um determinado concessioario
         /// </summary>
         /// <param name="id">id do concessionario</param>
@@ -158,12 +183,32 @@ namespace BL
         }
 
         /// <summary>
+        /// Metodo para adicionar um carro a um cliente
+        /// </summary>
+        /// <param name="nif">nif do cliente</param>
+        /// <param name="c">carro adquirido</param>
+        public void AdquirirCarro(double nif, Carro c)
+        {
+            data.AddCarro(nif, c);
+            data.DeleteCarroConcessionario(c.Vin);
+        }
+
+        /// <summary>
         /// Metodo para remover um carro de uma determinada lista
         /// </summary>
         /// <param name="vin">vin do carro a remover</param>
-        public void DeleteCarro(int vin)
+        public void DeleteCarroConcessionario(int vin)
         {
-            data.DeleteCarro(vin);
+            data.DeleteCarroConcessionario(vin);
+        }
+
+        /// <summary>
+        /// Metodo para remover um carro de um cliente
+        /// </summary>
+        /// <param name="vin">vin do carro</param>
+        public void DeleteCarroCliente(int vin)
+        {
+            data.DeleteCarroCliente(vin);
         }
 
         #endregion

@@ -64,6 +64,9 @@
     <Compile Include="undeveloped\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AddCarroCliente.xaml.cs">
+      <DependentUpon>AddCarroCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlClientes.xaml.cs">
       <DependentUpon>UserControlClientes.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="undeveloped\StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddCarroCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,17 +2,16 @@
 *  -------------------------------------------------
 * <copyright file=" DataLayer " company="IPCA"/>
 * <date> 5/27/2019 10:53:03 AM </date>
-* <author> bruno </author>
+* <author1> Bruno Lopes 16970</author1>
+* <author2> Ines Alves 17016 </author2>
 * <email> a16970@alunos.ipca.pt </email>
-* <desc>
-*   
-* </desc>
 * -------------------------------------------------
 */
 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,16 +121,28 @@ namespace DL
         #endregion
 
         #region Metodos Concessionarios
+        /// <summary>
+        /// Metodo que fornece uma lista com os concessionarios da marca
+        /// </summary>
+        /// <returns></returns>
         public List<Concessionario> Concessionarios()
         {
             return marca.Concessionarios;
         }
 
+        /// <summary>
+        /// Metodo para adicionar um concessionario
+        /// </summary>
+        /// <param name="id">id a adicionar</param>
         public void AddConcessionario(int id)
         {
             marca.AddConc(new Concessionario(id));
         }
 
+        /// <summary>
+        /// Metodo para remover um concessionario
+        /// </summary>
+        /// <param name="id">id a remover</param>
         public void DeleteConcessionario(int id)
         {
             marca.DeleteConc(id);
@@ -139,6 +150,29 @@ namespace DL
         #endregion
 
         #region Metodos Carros
+        /// <summary>
+        /// Metodo que fornece uma lista com todos os carros da marca
+        /// </summary>
+        /// <returns></returns>
+        public List<Carro> Carros()
+        {
+            List<Carro> carros = new List<Carro>();
+
+            foreach (Concessionario c in marca.Concessionarios)
+            {
+                try
+                {
+                    carros.AddRange(c.Carros.LCarros);
+                }
+                catch (NullReferenceException e)
+                {
+                    continue;
+                }
+            }
+
+            return carros;
+        }
+
         /// <summary>
         /// Metodo que retorna um objeto carros que contem os varios carros de um concessionario
         /// </summary>
@@ -148,7 +182,17 @@ namespace DL
         {
             return marca.Concessionarios.Find(var => var.Id == id).Carros;
         }
-        
+
+        /// <summary>
+        /// Metodo que retorna um objeto carros que contem os varios carros de um cliente
+        /// </summary>
+        /// <param name="nif">nif do cliente</param>
+        /// <returns></returns>
+        public Carros Carros(double nif)
+        {
+            return marca.Concessionarios.Find(var => var.Pessoas.SearchPessoa(nif) == true).GetCarros(nif);
+        }
+
         /// <summary>
         /// Metodo para adicionar um carro a um concessionario
         /// </summary>
@@ -160,12 +204,31 @@ namespace DL
         }
 
         /// <summary>
-        /// Metodo para remover um carro
+        /// Metodo para adicionar um carro a um cliente
+        /// </summary>
+        /// <param name="nif">nif do cliente</param>
+        /// <param name="c">carro a adicionar</param>
+        public void AddCarro(double nif, Carro c)
+        {
+            marca.Concessionarios.Find(var => var.SearchPessoa(nif) == true).AddCarro(nif, c);
+        }
+
+        /// <summary>
+        /// Metodo para remover um carro de um concessionario
         /// </summary>
         /// <param name="vin">vin do carro a remover</param>
-        public void DeleteCarro(int vin)
+        public void DeleteCarroConcessionario(int vin)
         {
-            marca.Concessionarios.Find(var => var.SearchCarro(vin) == true).DeleteCarro(vin);
+            if (marca.Concessionarios.Find(var => var.SearchCarro(vin) == true) != null) marca.Concessionarios.Find(var => var.SearchCarro(vin) == true).DeleteCarro(vin);
+        }
+
+        /// <summary>
+        /// Metodo para remover um carro de um cliente
+        /// </summary>
+        /// <param name="vin">vin do carro a remover</param>
+        public void DeleteCarroCliente(int vin)
+        {
+            marca.Concessionarios.Find(var => var.Pessoas.Clientes.Find(var2 => var2.SearchCarro(vin) == true).SearchCarro(vin) == true).DeleteCarroClintes(vin);
         }
         #endregion
 

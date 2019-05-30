@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+*  -------------------------------------------------
+* <copyright file=" MainWindow " company="IPCA"/>
+* <date> 5/27/2019 </date>
+* <author1> Bruno Lopes 16970</author1>
+* <author2> Ines Alves 17016 </author2>
+* <email> a16970@alunos.ipca.pt </email>
+* -------------------------------------------------
+*/
+
+using BL;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BL;
 
 namespace WPFUI
 {

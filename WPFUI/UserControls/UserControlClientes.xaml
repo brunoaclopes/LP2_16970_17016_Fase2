@@ -31,36 +31,35 @@
                 <ListView x:Name="ListaClientes" FontSize="18"  Margin="40 0 40 0" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="Gray" MinWidth="500" CornerRadius="10"  MaxWidth="800">
+                            <Border Background="Gray" MinWidth="500" CornerRadius="10"  MaxWidth="700">
                                 <Border.Effect>
                                     <DropShadowEffect RenderingBias="Quality" Color="#FFB2B2B2"/>
                                 </Border.Effect>
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="UserSupervisor" Width="20" Height="20" Foreground="LightGray" Margin="15 5 0 5" VerticalAlignment="Center"/>
+                                <WrapPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="UserOutline" Width="20" Height="20" Foreground="LightGray" Margin="15 5 0 5" VerticalAlignment="Center"/>
                                     <TextBlock Text="Nome" Margin="10" Foreground="White"/>
                                     <TextBlock Text="{Binding Nome}" Margin="0 10 10 10" Foreground="White"/>
                                     <TextBlock Text="Idade" Margin="10" Foreground="White"/>
                                     <TextBlock Text="{Binding Idade}" Margin="0 10 10 10" Foreground="White"/>
                                     <TextBlock Text="NIF" Margin="10" Foreground="White"/>
                                     <TextBlock Text="{Binding Nif}" Margin="0 10 10 10" Foreground="White"/>
-                                    <TextBlock Text="Data Cliente" Margin="10" Foreground="White"/>
-                                    <TextBlock Text="{Binding StringData}" Margin="0 10 15 10" Foreground="White"/>
-                                </StackPanel>
+                                    <TextBlock Text="Carros" Margin="10" Foreground="White"/>
+                                    <TextBlock Text="{Binding NCarros}" Margin="0 10 10 10" Foreground="White"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Data Cliente" Margin="10" Foreground="White"/>
+                                        <TextBlock Text="{Binding StringData}" Margin="0 10 15 10" Foreground="White"/>
+                                    </StackPanel>
+                                </WrapPanel>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollViewer>
-            <Grid Grid.Column="1" Grid.RowSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" VerticalAlignment="center" HorizontalAlignment="Center" Grid.Row="1">
-                    <Button x:Name="AddButton" Content="Adicionar Novo"  Margin="20" Click="AddButton_Click"/>
-                    <Button x:Name="RemoveButton" Content="Remover Selecionado" Margin="20" Click="RemoveButton_Click"/>
-                </StackPanel>
-            </Grid>
+            <StackPanel Orientation="Vertical" VerticalAlignment="center" HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="2">
+                <Button x:Name="AddButton" Content="Adicionar Novo"  Margin="20" Click="AddButton_Click"/>
+                <Button x:Name="RemoveButton" Content="Remover Selecionado" Margin="20" Click="RemoveButton_Click"/>
+                <Button x:Name="AdministrarCarros" Content="Administrar Carros" Margin="20" Click="AdministrarCarros_Click"/>
+            </StackPanel>
         </Grid>
     </materialDesign:TransitioningContent>
 </UserControl>
