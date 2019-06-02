@@ -37,28 +37,28 @@ namespace WPFUI.UserControls
         /// </summary>
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            
-
-            if (double.TryParse(Nif.Text, out double nif) == false)
+            if (Nome.Text != "" && DataNascimento.SelectedDate != null && Data.SelectedDate != null)
             {
-                Nif.Text = "Valor não suportado";
-            }
-            else
-            {
-                if (type == typeof(Comercial))
+                if (double.TryParse(Nif.Text, out double nif) == false)
                 {
-                    Comercial x = new Comercial(Nome.Text, nif, (DateTime)DataNascimento.SelectedDate, (DateTime)Data.SelectedDate);
-                    bl.AddPessoa(id, (object)x);
+                    Nif.Text = "Valor não suportado";
                 }
                 else
                 {
-                    Cliente x = new Cliente(Nome.Text, nif, (DateTime)DataNascimento.SelectedDate, (DateTime)Data.SelectedDate);
-                    bl.AddPessoa(id, (object)x);
-                }
-                
-                this.Close();
-            }
+                    if (type == typeof(Comercial))
+                    {
+                        Comercial x = new Comercial(Nome.Text, nif, (DateTime)DataNascimento.SelectedDate, (DateTime)Data.SelectedDate);
+                        bl.AddPessoa(id, (object)x);
+                    }
+                    else
+                    {
+                        Cliente x = new Cliente(Nome.Text, nif, (DateTime)DataNascimento.SelectedDate, (DateTime)Data.SelectedDate);
+                        bl.AddPessoa(id, (object)x);
+                    }
 
+                    this.Close();
+                }
+            }
         }
 
         /// <summary>

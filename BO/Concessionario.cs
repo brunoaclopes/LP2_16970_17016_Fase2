@@ -163,7 +163,7 @@ namespace BO
         /// </summary>
         /// <param name="vin">vin do veiculo</param>
         /// <returns></returns>
-        public bool DeleteCarroClintes(int vin)
+        public bool DeleteCarroClientes(int vin)
         {
             return (p.DeleteCarro(vin));
         }

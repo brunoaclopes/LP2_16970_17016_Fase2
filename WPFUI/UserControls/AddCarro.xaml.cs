@@ -34,18 +34,28 @@ namespace WPFUI.UserControls
         /// </summary>
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            string modelo = Modelo.Text;
-            DateTime data = (DateTime)Data.SelectedDate;
-            if (int.TryParse(Vin.Text, out int vin) == false)
+            DateTime data;
+            if (Modelo.Text != "")
             {
-                Vin.Text = "Valor não suportado";
+                string modelo = Modelo.Text;
+                if (Data.SelectedDate != null)
+                {
+                    data = (DateTime)Data.SelectedDate;
+                }
+                else
+                {
+                    data = DateTime.Now;
+                }
+                if (int.TryParse(Vin.Text, out int vin) == false)
+                {
+                    Vin.Text = "Valor não suportado";
+                }
+                else
+                {
+                    bl.AddCarro(id, data, modelo, vin);
+                    this.Close();
+                }
             }
-            else
-            {
-                bl.AddCarro(id, data, modelo, vin);
-                this.Close();
-            }
-
         }
 
         /// <summary>

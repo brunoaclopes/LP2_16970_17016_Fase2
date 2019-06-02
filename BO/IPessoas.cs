@@ -70,7 +70,7 @@ namespace BO
         /// </summary>
         /// <param name="vin">vin do veiculo</param>
         /// <returns></returns>
-        bool DeleteCarroClintes(int vin);
+        bool DeleteCarroClientes(int vin);
 
         /// <summary>
         /// Metodo que retorna os carros de um cliente pelo seu nif

@@ -228,7 +228,15 @@ namespace DL
         /// <param name="vin">vin do carro a remover</param>
         public void DeleteCarroCliente(int vin)
         {
-            marca.Concessionarios.Find(var => var.Pessoas.Clientes.Find(var2 => var2.SearchCarro(vin) == true).SearchCarro(vin) == true).DeleteCarroClintes(vin);
+            //marca.Concessionarios.Find(var => var.Pessoas.Clientes.Find(var2 => var2.SearchCarro(vin) == true).SearchCarro(vin) == true).DeleteCarroClientes(vin);
+            foreach (Concessionario c in marca.Concessionarios)
+            {
+                if (c.Pessoas.Clientes.Exists(var => var.SearchCarro(vin) == true) == true)
+                {
+                    c.DeleteCarroClientes(vin);
+                    break;
+                }
+            }
         }
         #endregion
 
